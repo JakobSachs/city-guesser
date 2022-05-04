@@ -5,7 +5,8 @@ function getRandomInt(min, max) {
 }
 
 // initial global vars
-var clevel = 1
+var clevel = document.getElementById("lvlslider").value
+document.getElementById("lvl").innerHTML = clevel + ""
 var cstage = 1
 var remap = 0
 var score = 0
@@ -175,7 +176,8 @@ function submitAnswers() {
   if (eval(q1) === rando_i + 1) {
     console.log("correcto")
     //update the level
-    clevel = clevel + 1
+    var clevel = document.getElementById("lvlslider").value
+    document.getElementById("lvl").innerHTML = clevel + ""
     // show the next map
     showMap(clevel,cstage)
 
@@ -209,6 +211,7 @@ function submitAnswers() {
     // assign high scores
     var escore = document.getElementById("hscore").innerHTML
     var elevel = document.getElementById("hlevel").innerHTML
+    
 
     if (clevel > elevel) {
       document.getElementById("hlevel").innerHTML = (clevel - 1) + ""
@@ -219,7 +222,9 @@ function submitAnswers() {
     }
 
     // refresh scores and start the game over again
-    clevel = 1
+    var clevel = document.getElementById("lvlslider").value
+    document.getElementById("lvl").innerHTML = clevel + ""
+
     cstage = 1
     remap = 1
     p_score = 0
